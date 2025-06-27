@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Ciências</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilo para o balão de fala */
+        .balao-fala {
+            display: none;
+            position: absolute;
+            background-color: #f0e68c;
+            border: 2px solid #d4af37;
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 300px;
+            font-size: 1.2rem;
+            text-align: center;
+            color: #333;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .balao-fala::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            margin-left: -10px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: #f0e68c transparent transparent transparent;
+        }
+    </style>
+    <script>
+        const perguntas = [
+            {
+                pergunta: "Qual é a importância da água para os seres vivos?",
+                respostas: {
+                    a: "A. A água é essencial para a vida.",
+                    b: "B. A água é apenas um líquido sem importância.",
+                    c: "C. A água não é necessária para os seres vivos.",
+                },
+                correta: "a"
+            },
+            {
+                pergunta: "Qual parte da planta é responsável pela fotossíntese?",
+                respostas: {
+                    a: "A. Raiz",
+                    b: "B. Folha",
+                    c: "C. Flor",
+                },
+                correta: "b"
+            },
+            {
+                pergunta: "Qual animal é conhecido como o 'rei da selva'?",
+                respostas: {
+                    a: "A. Elefante",
+                    b: "B. Leão",
+                    c: "C. Tigre",
+                },
+                correta: "b"
+            }
+        ];
+
+        let perguntaAtual;
+
+        function gerarPergunta() {
+            const indice = Math.floor(Math.random() * perguntas.length);
+            perguntaAtual = perguntas[indice];
+            document.getElementById('pergunta').textContent = perguntaAtual.pergunta;
+
+            const respostasContainer = document.getElementById('respostas');
+            respostasContainer.innerHTML = ''; // Limpa respostas anteriores
+
+            for (const [key, value] of Object.entries(perguntaAtual.respostas)) {
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.id = key;
+                radio.name = 'resposta';
+                radio.value = key;
+                const label = document.createElement('label');
+                label.htmlFor = key;
+                label.textContent = value;
+
+                respostasContainer.appendChild(radio);
+                respostasContainer.appendChild(label);
+                respostasContainer.appendChild(document.createElement('br'));
+            }
+
+            document.getElementById('resultado').textContent = ''; // Limpa o resultado anterior
+            document.querySelector('.balao-fala').style.display = 'none'; // Esconde o balão
+        }
+
+        function verificarResposta() {
+            const resposta = document.querySelector('input[name="resposta"]:checked');
+            const resultado = document.getElementById('resultado');
+            if (resposta) {
+                if (resposta.value === perguntaAtual.correta) {
+                    resultado.textContent = "Correto!";
+                    mostrarBalao("Parabéns campeão, você acertou. Vamos para a próxima pergunta!");
+                    setTimeout(gerarPergunta, 3000); // Espera 3 segundos antes de gerar a próxima pergunta
+                } else {
+                    resultado.textContent = "Incorreto! A resposta correta é: " + perguntaAtual.respostas[perguntaAtual.correta];
+                    setTimeout(gerarPergunta, 3000); // Gera a próxima pergunta mesmo se errar, após 3 segundos
+                }
+            } else {
+                resultado.textContent = "Por favor, selecione uma resposta.";
+            }
+        }
+
+        function mostrarBalao(mensagem) {
+            const balao = document.querySelector('.balao-fala');
+            balao.textContent = mensagem;
+            balao.style.display = 'block';
+        }
+
+        window.onload = gerarPergunta; // Gera uma pergunta ao carregar a página
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Jogo de Ciências</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="jogos.html">Jogos e Atividades</a></li>
+                <li><a href="inclusao.html">Inclusão</a></li>
+                <li><a href="pais_professores.html">Pais e Professores</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="section">
+        <h2 id="pergunta"></h2>
+        <div id="respostas"></div>
+        <button type="button" onclick="verificarResposta()">Verificar Resposta</button>
+        <p id="resultado"></p>
+        <div class="balao-fala"></div> <!-- Balão de fala -->
+    </div>
+
+    <footer>
+        <p>&copy; Educação Inclusiva para crianças. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

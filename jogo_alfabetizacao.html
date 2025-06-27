@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Alfabetização</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        const perguntas = [
+            {
+                pergunta: "Qual é a fruta amarela e tropical que pode ser usada em vitaminas?",
+                respostaCorreta: "abacaxi"
+            },
+            {
+                pergunta: "Qual fruta é vermelha e pode ser encontrada em bolos?",
+                respostaCorreta: "morango"
+            },
+            {
+                pergunta: "Qual é a fruta que tem casca verde e é muito doce?",
+                respostaCorreta: "kiwi"
+            }
+        ];
+
+        let perguntaAtual;
+
+        function gerarPergunta() {
+            const indice = Math.floor(Math.random() * perguntas.length);
+            perguntaAtual = perguntas[indice];
+            document.getElementById('pergunta').textContent = perguntaAtual.pergunta;
+            document.getElementById('resposta').value = ''; // Limpa a resposta anterior
+            document.getElementById('resultado').textContent = ''; // Limpa o resultado anterior
+        }
+
+        function verificarResposta() {
+            const resposta = document.getElementById('resposta').value.toLowerCase();
+            const resultado = document.getElementById('resultado');
+            if (resposta === perguntaAtual.respostaCorreta) {
+                resultado.textContent = "Correto!";
+                setTimeout(gerarPergunta, 1500); // Espera 3 segundos antes de gerar a próxima pergunta
+            } else {
+                resultado.textContent = "Incorreto! A resposta correta é: " + perguntaAtual.respostaCorreta + ".";
+                setTimeout(gerarPergunta, 1500); // Gera a próxima pergunta mesmo se errar, após 3 segundos
+            }
+        }
+
+        window.onload = gerarPergunta; // Gera uma pergunta ao carregar a página
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Jogo de Alfabetização</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="jogos.html">Jogos e Atividades</a></li>
+                <li><a href="inclusao.html">Inclusão</a></li>
+                <li><a href="pais_professores.html">Pais e Professores</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="section">
+        <h2 id="pergunta"></h2>
+        <input type="text" id="resposta" placeholder="Digite sua resposta aqui">
+        <button type="button" onclick="verificarResposta()">Verificar Resposta</button>
+        <p id="resultado"></p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Educação Inclusiva para crianças. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educação Inclusiva | Aprendizado Divertido e Acessível</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1 class="site-title">Educação Inclusiva</h1>
+            <nav class="main-nav" aria-label="Navegação Principal">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#home" class="nav-link">Início</a></li>
+                    <li class="nav-item"><a href="pais_professores.html" class="nav-link">Pais e Professores</a></li>
+                    <li class="nav-item"><a href="inclusao.html" class="nav-link">Inclusão</a></li>
+                    <li class="nav-item"><a href="#contato" class="nav-link">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section section-padding">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h2 class="section-title">Bem-vindo ao Nosso Mundo de Aprendizado!</h2>
+                    <p class="section-description">Descubra jogos e atividades educativas pensadas para promover a inclusão e o desenvolvimento de todas as crianças.</p>
+                    <button class="btn btn-primary" onclick="window.location.href='#quick-links'">Explorar Atividades</button>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="mascote.png" alt="Mascote amigável incentivando o aprendizado" class="hero-image">
+                    <div class="speech-bubble" aria-live="polite">
+                        Vamos aprender brincando!
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quick-links" class="quick-links-section section-padding bg-light">
+            <div class="container text-center">
+                <h2 class="section-title">Acesso Rápido a Jogos Educativos</h2>
+                <div class="grid-layout cols-3">
+                    <a href="jogo_alfabetizacao.html" class="card-link">
+                        <div class="card">
+                            <span class="icon">📚</span>
+                            <h3>Alfabetização</h3>
+                            <p>Jogos que ensinam o ABC e a formar palavras.</p>
+                        </div>
+                    </a>
+                    <a href="jogo_ciencias.html" class="card-link">
+                        <div class="card">
+                            <span class="icon">🔬</span>
+                            <h3>Ciências</h3>
+                            <p>Descubra o mundo com experimentos e fatos curiosos.</p>
+                        </div>
+                    </a>
+                    <a href="jogo-matematica.html" class="card-link">
+                        <div class="card">
+                            <span class="icon">➕</span>
+                            <h3>Matemática</h3>
+                            <p>Divirta-se com números, contagem e desafios lógicos.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="highlight-section section-padding">
+            <div class="container content-left">
+                <div class="image-wrapper">
+                    <img src="novidade.jpg.jpg" alt="Captura de tela do novo jogo educativo" class="responsive-image bordered-image">
+                </div>
+                <div class="text-content">
+                    <h2 class="section-title">Novidade da Semana: Aventura no Espaço!</h2>
+                    <p class="section-description">Participe da nossa mais nova aventura! Um jogo interativo onde as crianças exploram o universo, aprendem sobre planetas e estrelas de forma divertida e envolvente.</p>
+                    <button class="btn btn-secondary">Saiba Mais</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="video-section section-padding bg-light">
+            <div class="container text-center">
+                <h2 class="section-title">Vídeos Educativos para Inspirar</h2>
+                <p class="section-description">Conteúdo visual que complementa o aprendizado e explora temas importantes do dia a dia.</p>
+                <div class="video-responsive">
+                    <iframe src="http://www.youtube.com/watch?v=KZTRy6KL7_c"
+                        title="O ciclo da água para crianças - O que é o ciclo da água - Ciências para crianças"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <p class="video-description">Assista ao vídeo sobre a importância da água e o ciclo da natureza.</p>
+            </div>
+        </section>
+
+        <section class="achievement-section section-padding">
+            <div class="container content-right">
+                <div class="text-content">
+                    <h2 class="section-title">Celebre Suas Conquistas!</h2>
+                    <p class="section-description">A cada jogo completado, as crianças ganham medalhas virtuais! Um sistema de recompensas para motivar e reconhecer o esforço no aprendizado.</p>
+                    <button class="btn btn-secondary">Ver Conquistas</button>
+                </div>
+                <div class="image-wrapper">
+                    <img src="medalhas.png" alt="Coleção de medalhas virtuais como recompensas por jogos" class="responsive-image bordered-image">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer" id="contato">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sobre Nós</h3>
+                    <p>Dedicados a criar uma plataforma de aprendizado inclusiva e divertida para todas as crianças.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="pais_professores.html">Pais e Professores</a></li>
+                        <li><a href="inclusao.html">Inclusão</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Fale Conosco</h3>
+                    <p>Email: contato@educacaoinclusiva.com</p>
+                    <p>Telefone: (XX) XXXX-XXXX</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Educação Inclusiva. Todos os direitos reservados.</p>
+                <p>Desenvolvido para inspirar o aprendizado.</p>
+            </div>
+        </div>
+    </footer>
+
+    </body>
+</html>

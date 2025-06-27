@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pais e Professores | Acompanhamento e Suporte</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Opcional: Link para uma fonte do Google Fonts para um visual mais sofisticado -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Links para bibliotecas: Chart.js e DataTables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1 class="site-title">Pais e Professores</h1>
+            <nav class="main-nav" aria-label="Navegação da Seção">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Voltar para Início</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="progress-monitoring" class="section-padding bg-light">
+            <div class="container">
+                <h2 class="section-title text-center">Monitoramento do Progresso dos Alunos</h2>
+                <p class="section-description text-center">Acompanhe o desempenho e evolução dos alunos através de gráficos interativos e relatórios detalhados.</p>
+
+                <div class="card progress-card">
+                    <h3>Desempenho Geral</h3>
+                    <!-- Gráfico de Desempenho -->
+                    <div class="chart-container">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card feedback-section">
+                    <h3>Feedback Rápido</h3>
+                    <div class="feedback-grid">
+                        <div class="result-message positive">
+                            <p><strong>João:</strong> Excelente progresso em Matemática! Mantenha o ritmo.</p>
+                        </div>
+                        <div class="result-message negative">
+                            <p><strong>Maria:</strong> Precisa de mais prática em Ciências. Sugira atividades extras.</p>
+                        </div>
+                        <div class="result-message positive">
+                            <p><strong>Ana:</strong> Ótimo desenvolvimento na leitura!</p>
+                        </div>
+                        <div class="result-message negative">
+                            <p><strong>Lucas:</strong> Desafio em Português. Ofereça suporte extra.</p>
+                        </div>
+                    </div>
+                    <div class="button-group text-center">
+                        <button class="btn btn-primary" id="downloadReportBtn">Baixar Relatório Completo</button>
+                        <button class="btn btn-secondary" id="sendFeedbackBtn">Enviar Novo Feedback</button>
+                    </div>
+                </div>
+
+                <div class="card data-table-card">
+                    <h3>Registro de Atividades</h3>
+                    <!-- Tabela de Desempenho -->
+                    <table id="performanceTable" class="display responsive-table" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Nome do Aluno</th>
+                                <th>Atividade</th>
+                                <th>Pontuação</th>
+                                <th>Data</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>João</td><td>Matemática</td><td>85</td><td>2024-08-01</td></tr>
+                            <tr><td>Maria</td><td>Ciências</td><td>90</td><td>2024-08-02</td></tr>
+                            <tr><td>Lucas</td><td>Português</td><td>78</td><td>2024-08-05</td></tr>
+                            <tr><td>Ana</td><td>Matemática</td><td>95</td><td>2024-08-10</td></tr>
+                            <tr><td>Felipe</td><td>Ciências</td><td>88</td><td>2024-08-15</td></tr>
+                            <tr><td>Juliana</td><td>Português</td><td>92</td><td>2024-09-01</td></tr>
+                            <tr><td>Bruno</td><td>Matemática</td><td>83</td><td>2024-09-05</td></tr>
+                            <tr><td>Carla</td><td>Ciências</td><td>80</td><td>2024-09-10</td></tr>
+                            <tr><td>Rafael</td><td>Português</td><td>89</td><td>2024-09-15</td></tr>
+                            <tr><td>Fernanda</td><td>Matemática</td><td>91</td><td>2024-09-20</td></tr>
+                            <tr><td>Diego</td><td>Ciências</td><td>86</td><td>2024-10-01</td></tr>
+                            <tr><td>Clara</td><td>Português</td><td>84</td><td>2024-10-05</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq-section" class="section-padding">
+            <div class="container">
+                <h2 class="section-title text-center">Perguntas Frequentes (FAQ)</h2>
+                <p class="section-description text-center">Encontre respostas para as dúvidas mais comuns sobre o acompanhamento do aluno e o uso da plataforma.</p>
+
+                <div class="faq-container">
+                    <div class="faq-item card">
+                        <button class="faq-toggle" aria-expanded="false" aria-controls="faq-content-1">
+                            O que é o monitoramento do progresso?
+                            <span class="toggle-icon"></span>
+                        </button>
+                        <div id="faq-content-1" class="faq-content" role="region" aria-hidden="true">
+                            <p>O monitoramento do progresso é uma ferramenta que permite a pais e professores visualizarem o desempenho acadêmico dos alunos em diferentes atividades e ao longo do tempo. Ele ajuda a identificar pontos fortes e áreas que precisam de mais atenção.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card">
+                        <button class="faq-toggle" aria-expanded="false" aria-controls="faq-content-2">
+                            Como os dados são coletados e atualizados?
+                            <span class="toggle-icon"></span>
+                        </button>
+                        <div id="faq-content-2" class="faq-content" role="region" aria-hidden="true">
+                            <p>Os dados são coletados automaticamente à medida que os alunos completam jogos e atividades na plataforma. O sistema registra a pontuação, tempo gasto e outras métricas relevantes, atualizando os relatórios em tempo real.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card">
+                        <button class="faq-toggle" aria-expanded="false" aria-controls="faq-content-3">
+                            Posso baixar os relatórios para análise offline?
+                            <span class="toggle-icon"></span>
+                        </button>
+                        <div id="faq-content-3" class="faq-content" role="region" aria-hidden="true">
+                            <p>Sim, você pode baixar relatórios completos em formato PDF ou CSV, que contêm todos os dados de desempenho do aluno para análise offline ou para compartilhamento com outros educadores.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item card">
+                        <button class="faq-toggle" aria-expanded="false" aria-controls="faq-content-4">
+                            Como posso dar feedback sobre a plataforma?
+                            <span class="toggle-icon"></span>
+                        </button>
+                        <div id="faq-content-4" class="faq-content" role="region" aria-hidden="true">
+                            <p>Utilize o botão "Enviar Novo Feedback" nesta página ou a seção de contato para nos enviar suas sugestões, dúvidas ou relatar problemas. Seu feedback é muito importante para melhorarmos!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sobre Nós</h3>
+                    <p>Dedicados a criar uma plataforma de aprendizado inclusiva e divertida para todas as crianças.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="pais_professores.html">Pais e Professores</a></li>
+                        <li><a href="inclusao.html">Inclusão</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Fale Conosco</h3>
+                    <p>Email: contato@educacaoinclusiva.com</p>
+                    <p>Telefone: (XX) XXXX-XXXX</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Educação Inclusiva. Todos os direitos reservados.</p>
+                <p>Desenvolvido para inspirar o aprendizado.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Mensagem Customizada -->
+    <div id="customMessageModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-content">
+            <span class="close-button" aria-label="Fechar">&times;</span>
+            <p id="modalMessage"></p>
+            <button class="btn btn-primary" id="modalOkButton">Ok</button>
+        </div>
+    </div>
+
+    <!-- Scripts no final do body para melhor performance -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
